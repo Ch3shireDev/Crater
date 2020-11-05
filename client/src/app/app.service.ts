@@ -1,3 +1,4 @@
+import { ThumbnailData } from './thumbnail-data';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Message } from './message';
@@ -18,4 +19,9 @@ export class AppService {
     console.log(message);
     return this.httpClient.post<Message>(`/api/messages`, message);
   }
+
+  public getThumbnail(url: string): Observable<ThumbnailData> {
+    return this.httpClient.get<ThumbnailData>('/api/thumbnail', { params: { url } });
+  }
+
 }

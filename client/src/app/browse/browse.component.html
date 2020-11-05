@@ -1,5 +1,31 @@
-<div *ngFor="let message of messages">
-  <div>
-    <p>{{ message.content }}</p>
+<div class="m-3 p-5">
+  <div
+    *ngFor="let message of messages"
+    class="border p-0 hover mb-2 crater-message"
+    (click)="goTo(message)"
+  >
+    <div class="d-flex flex-row" style="height: 130px;">
+      <div class="flex-grow-0 bg-primary">
+        <img
+          [src]="message.thumbnailUrl"
+          style="object-fit: scale-down; height: 130px;"
+        />
+      </div>
+      <div class="container flex-grow-1 ml-0 px-0">
+        <div
+          class="bg-dark py-1 px-3 mb-3 text-light"
+          style="overflow: hidden;"
+        >
+          <h3>{{ message.title }}</h3>
+        </div>
+        <div class="px-3 py-0" style="overflow: hidden;">
+          <p>{{ message.content }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="px-3 py-1">
+      Data publikacji: {{ message.datePublished | date: 'fullDate' }} (
+      {{ message.datePublished | date: 'shortTime' }} )
+    </div>
   </div>
 </div>

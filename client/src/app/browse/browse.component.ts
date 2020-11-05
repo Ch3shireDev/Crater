@@ -18,7 +18,13 @@ export class BrowseComponent implements OnInit {
   }
 
   refresh(): void {
-    this.appService.getMessages().subscribe((messages: Message[]) => { this.messages = messages; });
+    this.appService.getMessages().subscribe((messages: Message[]) => { this.messages = messages; console.log(messages); });
+  }
+
+  goTo(message: Message): void {
+    if (message.url == null) { return; }
+    if (message.url === undefined) { return; }
+    window.location.href = message.url;
   }
 
 }

@@ -1,2 +1,5 @@
 api/obj
+api/bin
+api/.vs
 client/package-lock.json
+api/*.db

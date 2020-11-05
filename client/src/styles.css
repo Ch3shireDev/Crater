@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+.hover:hover{
+  cursor: pointer;
+  border: 10px solid black;
+}
+
+.crater-message{
+  /* height: 130px; */
+  overflow: hidden;
+}

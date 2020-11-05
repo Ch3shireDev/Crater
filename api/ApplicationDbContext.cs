@@ -1,7 +1,8 @@
-﻿using api.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace api
 {
@@ -25,7 +26,9 @@ namespace api
 
         internal List<Message> GetMessages()
         {
-            return Messages.ToList();
+            var messages = Messages.ToList();
+            messages.Reverse();
+            return messages.ToList();
         }
 
         internal Message GetMessage(int id)
@@ -36,6 +39,7 @@ namespace api
 
         internal void CreateMessage(Message message)
         {
+            message.DatePublished = DateTime.Now;
             Messages.Add(message);
             SaveChanges();
         }

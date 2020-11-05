@@ -1,28 +1,15 @@
 version: "3"
 services: 
-    db:
-        image: "mcr.microsoft.com/mssql/server:2017-latest"
-        environment:
-            SA_PASSWORD: "Passw0rd"
-            ACCEPT_EULA: "Y"
     api:
         build: api
         ports: 
             - 3000:80
-        depends_on: 
-            - db
-    client:
-        build: client
-        volumes:
-            - ./client/dist/client:/usr/share/nginx/html
-            # COPY --from=build /app/dist/client /usr/share/nginx/html
-        ports: 
-            - 4000:80
     nginx:
         build: server
         ports: 
             - 80:80
         restart: always
-        depends_on: 
-            - client
+        depends_on:
             - api
+        volumes:
+            - ./client/dist/client:/usr/share/nginx/html

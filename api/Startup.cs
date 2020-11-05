@@ -22,13 +22,15 @@ namespace api
         {
             // Database connection string.
 
-            var connection = @"Server=db;Database=master;User=sa;Password=Passw0rd;";
+            // var connection = @"Server=db;Database=master;User=sa;Password=Passw0rd;";
             // var connection = @"Server=PHOENIX\SQLEXPRESS;Database=master;Trusted_Connection=True";
 
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer(connection);
+                options.UseSqlite("Data Source=mydb.db");
+
+                //options.UseSqlServer(connection);
             });
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
@@ -45,7 +47,10 @@ namespace api
             using (var scope =
                 app.ApplicationServices.CreateScope())
             using (var context = scope.ServiceProvider.GetService<ApplicationDbContext>())
+            {
                 context.Database.EnsureCreated();
+            }
+
             app.UseRouting();
 
             app.UseAuthorization();

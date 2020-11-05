@@ -1,4 +1,7 @@
-﻿using api.Models;
+﻿using System;
+using System.Net;
+using api.Models;
+using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -38,6 +41,20 @@ namespace api.Controllers
         [HttpPost]
         public ActionResult Post(Message message)
         {
+            try
+            {
+                var web = new HtmlWeb();
+                var doc = web.Load(message.Url);
+                var thumbnailUrl = doc.GetThumbnailUrl();
+                //var thumbnail = new WebClient().DownloadData(thumbnailUrl);
+                //message.ImageBytes = thumbnail;
+                message.ThumbnailUrl = thumbnailUrl;
+            }
+            catch (Exception)
+            {
+                // ignored
+            }
+
             _context.CreateMessage(message);
             return Ok(message);
         }

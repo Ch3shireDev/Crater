@@ -4,12 +4,16 @@
       <h3>Dodaj nowy wpis</h3>
     </div>
     <div class="row form-group">
+      <label>Url:</label>
+      <input [(ngModel)]="message.url" class="form-control" (ngModelChange)="change($event)"/>
+    </div>
+    <div class="row form-group">
       <label>Tytuł:</label>
-      <input [(ngModel)]="title" class="form-control"/>
+      <input [(ngModel)]="message.title" class="form-control"/>
     </div>
     <div class="row form-group">
       <label>Opis:</label>
-      <textarea [(ngModel)]="content" class="form-control"></textarea>
+      <textarea [(ngModel)]="message.content" class="form-control"></textarea>
     </div>
     <div class="row">
       <button (click)="submit()" class="btn btn-primary mr-1">Wyślij</button>
