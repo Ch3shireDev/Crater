@@ -13,6 +13,9 @@ services:
             - db
     client:
         build: client
+        volumes:
+            - ./client/dist/client:/usr/share/nginx/html
+            # COPY --from=build /app/dist/client /usr/share/nginx/html
         ports: 
             - 4000:80
     nginx:

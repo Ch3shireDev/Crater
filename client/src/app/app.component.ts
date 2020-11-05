@@ -1,5 +1,3 @@
-import { AppService } from './app.service';
-import { Message } from './message';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,23 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'client';
-  messages: Message[];
-  content: string;
-  constructor(private appService: AppService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.refresh();
   }
 
-  refresh(): void {
-    this.appService.getMessages().subscribe((messages: Message[]) => { this.messages = messages; });
-  }
 
-  submit(): void {
-    if (this.content === undefined) { return; }
-    const message = new Message();
-    message.content = this.content;
-    this.appService.postMessage(message).subscribe(res => { this.refresh(); });
-  }
 }

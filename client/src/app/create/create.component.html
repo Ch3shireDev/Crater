@@ -1,0 +1,19 @@
+<div class="container mt-5 border shadow rounded p-5">
+  <div class="col-6">
+    <div class="row">
+      <h3>Dodaj nowy wpis</h3>
+    </div>
+    <div class="row form-group">
+      <label>Tytuł:</label>
+      <input [(ngModel)]="title" class="form-control"/>
+    </div>
+    <div class="row form-group">
+      <label>Opis:</label>
+      <textarea [(ngModel)]="content" class="form-control"></textarea>
+    </div>
+    <div class="row">
+      <button (click)="submit()" class="btn btn-primary mr-1">Wyślij</button>
+      <button routerLink="/" class="btn btn-danger">Wróć</button>
+    </div>
+  </div>
+</div>

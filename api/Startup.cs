@@ -1,4 +1,3 @@
-using api.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -22,8 +21,9 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             // Database connection string.
-            // Make sure to update the Password value below from "your_password" to your actual password.
+
             var connection = @"Server=db;Database=master;User=sa;Password=Passw0rd;";
+            // var connection = @"Server=PHOENIX\SQLEXPRESS;Database=master;Trusted_Connection=True";
 
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -34,7 +34,6 @@ namespace api
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
-
 
             services.AddControllers();
         }

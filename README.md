@@ -1,3 +1,3 @@
 # Atomic Bomb
 
-News aggregator dla nuclearmissle.0x04.net .
+News aggregator dla [Nuclear Missle](nuclearmissle.0x04.net).

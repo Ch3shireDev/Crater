@@ -1,15 +1,14 @@
-<div *ngFor="let message of messages">
-    <div>
-        <p>{{message.content}}</p>
-    </div>
-</div>
-
-<p>
-    <input [(ngModel)]="content">
-</p>
-<p>
-    <label>Enter content for new message here</label>
-</p>
-<p>
-    <button (click)="submit()">Submit</button>
-</p>
+<nav class="navbar navbar-expand navbar-dark bg-dark px-5">
+  <a class="navbar-brand"><h3>Crater</h3></a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Przeglądaj</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/create">Dodaj wpis</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<router-outlet></router-outlet>
