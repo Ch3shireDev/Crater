@@ -4,10 +4,6 @@ services:
         build: api
         ports: 
             - 3000:80
-    client:
-        build: client
-        volumes:
-            - html:/app/dist/client
     nginx:
         build: server
         ports: 
@@ -15,9 +11,5 @@ services:
         restart: always
         depends_on:
             - api
-            - client
         volumes:
-            - html:/usr/share/nginx/html
-volumes:
-    html:
-    db:
+            - ./client/dist/client:/usr/share/nginx/html

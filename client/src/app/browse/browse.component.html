@@ -1,22 +1,21 @@
 <div class="m-3 p-5">
   <div
     *ngFor="let message of messages"
-    class="border p-0 hover mb-2 crater-message"
-    (click)="goTo(message)"
+    class="border p-0 mb-2 crater-message"
   >
-    <div class="d-flex flex-row" style="height: 130px;">
-      <div class="flex-grow-0 bg-primary">
+    <div class="d-flex flex-row crater-container" >
+      <div class="flex-grow-0 crater-image-container">
         <img
           [src]="message.thumbnailUrl"
-          style="object-fit: scale-down; height: 130px;"
-        />
+        class="crater-image"
+          />
       </div>
       <div class="container flex-grow-1 ml-0 px-0">
         <div
           class="bg-dark py-1 px-3 mb-3 text-light"
           style="overflow: hidden;"
         >
-          <h3>{{ message.title }}</h3>
+          <h3><a href="{{message.url}}" class="text-light">{{ message.title }}</a></h3>
         </div>
         <div class="px-3 py-0" style="overflow: hidden;">
           <p>{{ message.content }}</p>

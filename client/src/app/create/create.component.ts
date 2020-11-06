@@ -1,3 +1,4 @@
+import { Tools } from './../tools';
 import { ThumbnailData } from './../thumbnail-data';
 import { AppService } from './../app.service';
 import { Component, OnInit } from '@angular/core';
@@ -33,10 +34,11 @@ export class CreateComponent implements OnInit {
     if (this.message.url === null) { return; }
     if (!this.message.url.startsWith('http')) { return; }
     this.appService.getThumbnail(this.message.url).subscribe((thumbnail: ThumbnailData) => {
-      this.message.title = thumbnail.title.replace('&#x27;', '\'');
-      this.message.content = thumbnail.description.replace('&#x27;', '\'');
+      this.message.title = Tools.decode(thumbnail.title);
+      this.message.content = Tools.decode(thumbnail.description);
       this.imageStr = thumbnail.thumbnail;
     });
   }
+
 
 }

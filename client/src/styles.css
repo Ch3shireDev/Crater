@@ -7,3 +7,21 @@
   /* height: 130px; */
   overflow: hidden;
 }
+
+.crater-image-container{
+  width:300px;
+  background-color: black;
+
+}
+
+.crater-image{
+  object-fit: scale-down;
+  height: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.crater-container{
+  /* height: 130px; */
+}
