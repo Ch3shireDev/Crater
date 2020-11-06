@@ -3,10 +3,6 @@
   border: 10px solid black;
 }
 
-.crater-message{
-  /* height: 130px; */
-  overflow: hidden;
-}
 
 .crater-image-container{
   width:300px;
@@ -22,6 +18,91 @@
   display: block;
 }
 
-.crater-container{
-  /* height: 130px; */
+.crater-message{
+  background: #eee;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto 30px;
+
+  grid-template-areas:
+  "title title"
+  "image description"
+  "footer footer";
+
+  border: 1px solid #444;
+  margin-bottom: 1.2rem;
+}
+
+
+.crater-image-container{
+grid-area: image;
+width:300px;
+}
+
+.crater-title{
+grid-area:title;
+background: rgb(82, 21, 21);
+padding: 0.5rem  1rem;
+color:white;
+}
+
+.crater-description{
+grid-area: description;
+padding-top: 0.5rem;
+text-align: justify;
+}
+
+.crater-date{
+grid-area:footer;
+padding-bottom: 2rem;
+font-size: 12px;
+margin-bottom:1rem;
+}
+
+.crater-browse{
+  padding:3rem;
+  background: rgb(151, 122, 122);
+}
+
+.crater-nav{
+  background: rgb(56, 4, 4);
+  color:whitesmoke;
+  box-shadow: 0 0 1rem #444;
+}
+
+.crater-nav *{
+  color: white;
+}
+
+@media only screen and (max-width: 700px) {
+  .crater-message{
+    border: none;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto auto;
+
+    grid-template-areas:
+    "title"
+    "image"
+    "description"
+    "footer";
+
+    margin-bottom: 0;
+  }
+
+  .crater-image-container{
+    width:100%;
+    height:200px;
+  }
+
+  .crater-image{
+    height:200px;
+  }
+
+  .crater-browse{
+    padding:0;
+  }
+
 }
